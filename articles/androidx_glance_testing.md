@@ -18,11 +18,16 @@ https://developer.android.com/jetpack/androidx/releases/glance#1.1.0
 
 1.0.0 までは[glance-experimental-tools](https://github.com/google/glance-experimental-tools)という別リポジトリで試験的に提供されていましたが、ついに安定版として androidx に仲間入りしました！
 
-# セットアップ
+# テストの実装
 
-Android SDK を単体テストで利用するため Robolectric を併用します
+基本的な方法は公式ドキュメントで説明されている通りです。
+ただし単体テストとして実装するため、`Context`など Android SDK 固有の依存を Robolectric で適切にモックする必要があります。
 
-```diff gradle
+https://developer.android.com/develop/ui/compose/glance/testing?hl=ja
+
+## セットアップ
+
+```diff gradle:${module}/build.gradle.kt
  android {
 +    testOptions {
 +        unitTests {
@@ -39,11 +44,11 @@ Android SDK を単体テストで利用するため Robolectric を併用しま�
  }
 ```
 
-# テスト
+## テスト
 
 Jetpack Compose のテストと同様に書けます！
 
-```kotlin
+```kotlin:${module}/src/test/**/WidgetTest.kt
 @RunWith(AndroidJUnit4::class)
 @Config(sdk = [34])
 class CounterWidgetTest {
