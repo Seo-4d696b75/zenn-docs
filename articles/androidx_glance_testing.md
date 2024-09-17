@@ -3,7 +3,8 @@ title: "【Android】Glance 単体テスト"
 emoji: "🧪"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Android", "Glance", "ウィジェット", "Test"]
-published: false
+published: true
+publication_name: "yumemi_inc"
 ---
 
 本記事が前提とする Glance の導入・状態管理は別記事で紹介しています
