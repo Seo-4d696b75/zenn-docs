@@ -16,7 +16,7 @@ https://qiita.com/Seo-4d696b75/items/235967ed0c4332683f6e
 
 https://developer.android.com/jetpack/androidx/releases/glance#1.1.0
 
-1.0.0 までは[glance-experimental-tools](https://github.com/google/glance-experimental-tools)という別リポジトリで試験的に提供されていましたが、ついに安定版として androidx に仲間入りしました！
+1.0.0 までは[glance-experimental-tools](https://github.com/google/glance-experimental-tools)という別リポジトリで試験的に提供されていましたが、ついに安定版として androidx (Jetpack) に仲間入りしました！
 
 # テストの実装
 
@@ -24,6 +24,10 @@ https://developer.android.com/jetpack/androidx/releases/glance#1.1.0
 ただし単体テストとして実装するため、`Context`など Android SDK 固有の依存を Robolectric で適切にモックする必要があります。
 
 https://developer.android.com/develop/ui/compose/glance/testing?hl=ja
+
+本記事で実装したテストコードはGitHubで公開しています
+
+https://github.com/Seo-4d696b75/glance-widget-demo
 
 ## セットアップ
 
