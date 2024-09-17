@@ -31,6 +31,10 @@ https://qiita.com/Seo-4d696b75/items/235967ed0c4332683f6e
 
 https://developer.android.com/develop/ui/views/appwidgets/configuration
 
+本記事で実装したデモアプリ＆ウィジェットは GitHub で公開しています
+
+https://github.com/Seo-4d696b75/glance-widget-demo
+
 ## ウィジェットの設定の種類と指定方法
 
 Android バージョンによって異なります
