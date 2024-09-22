@@ -7,12 +7,6 @@ published: true
 publication_name: "yumemi_inc"
 ---
 
-本記事が前提とする Glance の導入・状態管理は別記事で紹介しています
-
-https://qiita.com/Seo-4d696b75/items/235967ed0c4332683f6e
-
----------
-
 # 安定版 glance*-testing がリリース🎉
 
 https://developer.android.com/jetpack/androidx/releases/glance#1.1.0
@@ -26,13 +20,9 @@ https://developer.android.com/jetpack/androidx/releases/glance#1.1.0
 
 https://developer.android.com/develop/ui/compose/glance/testing?hl=ja
 
-本記事で実装したテストコードはGitHubで公開しています
-
-https://github.com/Seo-4d696b75/glance-widget-demo
-
 ## セットアップ
 
-```diff gradle:${module}/build.gradle.kt
+```diff gradle:${module}/build.gradle.kts
  android {
 +    testOptions {
 +        unitTests {
@@ -52,6 +42,13 @@ https://github.com/Seo-4d696b75/glance-widget-demo
 ## テスト
 
 Jetpack Compose のテストと同様に書けます！
+
+:::message
+テストが容易な設計を心掛ける
+
+Glanceの状態を参照する`currentState()`はトップレベルに置き、各コンポーネントの状態は引数として外部から簡単に指定できるようにします
+:::
+
 
 ```kotlin:${module}/src/test/**/WidgetTest.kt
 @RunWith(AndroidJUnit4::class)
@@ -83,13 +80,12 @@ class CounterWidgetTest {
 
         // 3. 検査の実行
         onNode(hasText("10")).assertExists()
+        onNode(hasTestTag("counter_loading")).assertDoesNotExist()
     }
 }
 ```
 
-:::message
-テストが容易な設計を心掛ける
+テスト対象のウィジェットの詳細な実装はGitHubを参照してください
 
-Glanceの状態を参照する`currentState()`はトップレベルに置き、各コンポーネントの状態は引数として外部から簡単に指定できるようにします
-:::
+https://github.com/Seo-4d696b75/glance-widget-demo
 
